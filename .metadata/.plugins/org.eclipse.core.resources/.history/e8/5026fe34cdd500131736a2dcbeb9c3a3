@@ -1,0 +1,69 @@
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+public class InsertJPanel extends ModifyJPanel {
+	LinkedList<Information> list;
+	JTextField name_tf;
+	JTextField id_tf;
+	JLabel name_lb;
+	JLabel id_lb;	
+	JTextField ad_tf;
+	JLabel ad_lb;
+	JButton btn;
+	
+	public InsertJPanel(LinkedList<Information> list) {
+		System.out.println("InsertJPanel 객체 생성자!");
+		this.list = list;
+		createInterface();
+	}
+	
+	public void createInterface(){
+		name_lb = new JLabel("Name");
+		name_tf = new JTextField();
+		id_lb = new JLabel("ID");
+		id_tf = new JTextField();
+		ad_lb = new JLabel("Address");
+		ad_tf = new JTextField();
+		ad_tf.setColumns(10);
+		btn = new JButton("Button");
+		super.create
+		btn.setText("INSERT");
+		
+		btnEvent();
+	}
+	
+	public void btnEvent(){
+		btn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				insertEvent();
+			}
+		});
+	}
+	
+	public void insertEvent(){
+		System.out.println("INSERT 버튼 이벤트 발생!");
+		Information info = new Information(name_tf.getText(), id_tf.getText(), ad_tf.getText());
+		System.out.println(" Name : " + info.getName() + "  ID : " + info.getId() + "  SNS : " + info.getSns());
+		list.add(info);
+		print();
+	}
+	
+	public void print(){
+		Iterator<Information> it = list.iterator();
+		Information i;
+		int count = 1;
+		while (it.hasNext()) {
+			i = it.next();
+			System.out.println("[" + (count++) + "]" + " Name : " + i.getName() + "  ID : " + i.getId() + "  SNS : " + i.getSns());
+		}
+	}
+}

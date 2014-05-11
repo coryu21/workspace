@@ -1,0 +1,36 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+
+public abstract class ModifyJPanel extends JPanel{
+	LinkedList<Information> list;
+	DefaultTableModel model;
+	JTextField name_tf;
+	JTextField id_tf;
+	JLabel name_lb;
+	JLabel id_lb;
+	JTextField ad_tf;
+	JLabel ad_lb;
+	JButton btn;
+	
+	public ModifyJPanel(){
+		
+	}
+	public void btnEvent() {
+		btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				event();
+			}
+		});
+	}
+	
+	public abstract void createInterface();
+	public abstract void event();
+}

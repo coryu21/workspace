@@ -1,0 +1,29 @@
+import java.awt.Container;
+
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
+public class MainJFrame extends JFrame {
+	Container contentPane;
+	public MainJFrame() {
+		createInterface();
+	}
+	
+	public void createInterface(){
+		contentPane = this.getContentPane();
+		contentPane.add(new RightJPanel(), BorderLayout.EAST);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		contentPane.add(new LeftTabPane());
+		this.setTitle("SNS 관리 프로그램");
+		this.setSize(720, 480);
+		this.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		MainJFrame mf = new MainJFrame();
+
+	}
+}

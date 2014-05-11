@@ -1,0 +1,104 @@
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+
+public class InsertJPanel extends ModifyJPanel {
+	
+	public InsertJPanel(LinkedList list, DefaultTableModel model) {
+		System.out.println("InsertJPanel 객체 생성자!");
+		this.list = list;
+		this.model = model;
+		createInterface();
+	}
+	
+	public void createInterface(){
+		setLayout(null);
+
+		name_lb = new JLabel("Name");
+		name_lb.setFont(new Font("Dialog", Font.BOLD, 15));
+		name_lb.setBounds(12, 10, 57, 32);
+		add(name_lb);
+
+		name_tf = new JTextField();
+		name_tf.setBounds(81, 13, 146, 32);
+		add(name_tf);
+		name_tf.setColumns(10);
+
+		id_lb = new JLabel("ID");
+		id_lb.setFont(new Font("Dialog", Font.BOLD, 15));
+		id_lb.setBounds(12, 55, 47, 32);
+		add(id_lb);
+
+		id_tf = new JTextField();
+		id_tf.setColumns(10);
+		id_tf.setBounds(81, 55, 146, 32);
+		add(id_tf);
+		
+		ad_lb = new JLabel("Address");
+		ad_lb.setFont(new Font("Dialog", Font.BOLD, 15));
+		ad_lb.setBounds(12, 100, 70, 32);
+		add(ad_lb);
+
+		ad_tf = new JTextField();
+		ad_tf.setColumns(10);
+		ad_tf.setBounds(81, 97, 146, 32);
+		add(ad_tf);
+
+		btn = new JButton("Button");
+		btn.setFont(new Font("Dialog", Font.BOLD, 15));
+		btn.setBounds(119, 139, 108, 32);
+		btn.setText("INSERT");
+		btnEvent();
+		add(btn);
+	}
+	
+	public void btnEvent(){
+		btn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				event();
+			}
+		});
+	}
+	
+	public void event(){
+		System.out.println("INSERT 버튼 이벤트 발생!");
+		Information info = new Information(name_tf.getText(), id_tf.getText(), ad_tf.getText());
+		System.out.println(" Name : " + info.getName() + "  ID : " + info.getId() + "  SNS : " + info.getSns());
+		list.add(info);
+		print();
+		refreshTable();
+	}
+	
+	public void print(){
+		Iterator<Information> it = list.iterator();
+		Information i;
+		int count = 1;
+		while (it.hasNext()) {
+			i = it.next();
+			System.out.println("[" + (count++) + "]" + " Name : " + i.getName() + "  ID : " + i.getId() + "  SNS : " + i.getSns());
+		}
+	}
+	
+	public void refreshTable(){
+		Iterator<Information> it = list.iterator();
+		Information i;
+		int count = 0;
+		model.setNumRows(0);
+		while (it.hasNext()) {
+			i = it.next();
+			Object temp[] = { i.getName(), i.getId(), i.getSns()};
+			model.addRow(temp);
+			count++;
+		}
+		
+	}
+}

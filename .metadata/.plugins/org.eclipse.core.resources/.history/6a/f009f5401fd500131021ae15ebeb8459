@@ -1,0 +1,22 @@
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+
+public class RightJPanel2 extends JPanel {
+	private JTable table;
+
+	/**
+	 * Create the panel.
+	 */
+	public RightJPanel2() {
+		
+		JScrollPane scrollPane = new JScrollPane();
+		add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.add(table);
+		
+	}
+
+}

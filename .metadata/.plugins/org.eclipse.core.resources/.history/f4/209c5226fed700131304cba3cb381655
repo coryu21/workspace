@@ -1,0 +1,24 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
+
+public class RefreshTable extends JPanel{
+	LinkedList<Information> list;
+	DefaultTableModel model;
+
+	public void refreshTable(){
+		Iterator<Information> it = list.iterator();
+		Information i;
+		int count = 0;
+		model.setNumRows(0);
+		while (it.hasNext()) {
+			i = it.next();
+			Object temp[] = { i.getName(), i.getId(), i.getSns()};
+			model.addRow(temp);
+			count++;
+		}
+	}
+}

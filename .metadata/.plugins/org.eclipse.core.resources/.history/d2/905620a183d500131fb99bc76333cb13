@@ -1,0 +1,36 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
+
+import javax.swing.JTabbedPane;
+
+public class LeftTabPane extends JTabbedPane {
+	InsertJPanel ip;
+	UpdateJPanel up;
+	DeleteJPanel dp;
+	LinkedList list;
+	Information info;
+	
+	public LeftTabPane() {
+		createInterface();
+	}
+
+	public void createInterface() {
+		list = new LinkedList();
+		ip = new InsertJPanel();
+		up = new UpdateJPanel();
+		dp = new DeleteJPanel();
+		
+		add("추가", ip);
+		add("수정", up);
+		add("삭제", dp);
+		
+		ip.btn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				info = new Information(ip.name_tf.getText(), )
+			}
+		});
+		
+		
+	}
+}

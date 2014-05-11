@@ -1,0 +1,14 @@
+import javax.swing.JPanel;
+
+
+public class UpdateJPanel extends ModifyJPanel {
+	public UpdateJPanel() {
+		System.out.println("InsertJPanel 객체 생성자!");
+		createInterface();
+	}
+	
+	public void createInterface(){
+		super.createInterface();
+		super.btn.setText("INSERT");
+	}
+}

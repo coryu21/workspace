@@ -1,0 +1,11 @@
+
+public class Information {
+	private String name, id, sns;
+	
+	public Information(){
+		System.out.println("객체 생성!");
+	}
+	
+	public
+
+}

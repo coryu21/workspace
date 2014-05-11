@@ -1,0 +1,42 @@
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+
+
+public class BasicJPanel extends JPanel {
+	JTextField name_tf;
+	JTextField id_tf;
+	JLabel name_lb;
+	JLabel id_lb;
+	
+	public BasicJPanel() {
+		System.out.println("BasicJPanel 객체가 생성자!");
+	}
+	public void createInterface(){
+		setLayout(null);
+		
+		
+		name_lb = new JLabel("Name");
+		name_lb.setFont(new Font("Dialog", Font.BOLD, 15));
+		name_lb.setBounds(12, 10, 57, 32);
+		add(name_lb);
+		
+		name_tf = new JTextField();
+		name_tf.setBounds(81, 13, 146, 32);
+		add(name_tf);
+		name_tf.setColumns(10);
+		
+		id_lb = new JLabel("ID");
+		id_lb.setFont(new Font("Dialog", Font.BOLD, 15));
+		id_lb.setBounds(12, 55, 47, 32);
+		add(id_lb);
+		
+		id_tf = new JTextField();
+		id_tf.setColumns(10);
+		id_tf.setBounds(81, 55, 146, 32);
+		add(id_tf);
+	}
+}

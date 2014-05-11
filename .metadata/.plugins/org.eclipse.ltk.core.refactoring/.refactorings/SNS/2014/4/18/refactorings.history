@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;InsertJPanel&apos; to &apos;SearchJPanel&apos;&#x0D;&#x0A;- Original project: &apos;SNS&apos;&#x0D;&#x0A;- Original element: &apos;InsertJPanel&apos;&#x0D;&#x0A;- Renamed element: &apos;SearchJPanel&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;InsertJPanel&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{InsertJPanel.java[InsertJPanel" matchStrategy="1" name="SearchJPanel" qualified="false" references="true" similarDeclarations="false" stamp="1398822608059" textual="false" version="1.0"/>
+</session>

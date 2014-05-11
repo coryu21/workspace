@@ -1,0 +1,23 @@
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+
+public abstract class ModifyJPanel extends JPanel{
+	LinkedList<Information> list;
+	DefaultTableModel model;
+	JTextField name_tf;
+	JTextField id_tf;
+	JLabel name_lb;
+	JLabel id_lb;
+	JTextField ad_tf;
+	JLabel ad_lb;
+	JButton btn;
+	
+	abstract void createInterface();
+	public abstract void btnEvent();
+}

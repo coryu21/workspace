@@ -1,0 +1,24 @@
+import java.awt.Dimension;
+
+import javax.swing.JTabbedPane;
+
+public class LeftTabPane extends JTabbedPane {
+	InsertJPanel ip;
+	UpdateJPanel up = new UpdateJPanel();
+	DeleteJPanel dp = new DeleteJPanel();
+	
+	
+	public LeftTabPane() {
+		createInterface();
+	}
+
+	public void createInterface() {
+		ip = new InsertJPanel();
+		
+		add("추가", new InsertJPanel());
+		add("수정", new UpdateJPanel());
+		add("삭제", new DeleteJPanel());
+		
+		
+	}
+}

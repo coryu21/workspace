@@ -1,0 +1,45 @@
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JButton;
+
+
+public class BasinJPanel extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+
+	public BasinJPanel() {
+		System.out.println("InsertJPanel 객체가 생성되었습니다.");
+		createInterface();
+	}
+	
+	public void createInterface(){
+		setLayout(null);
+		JLabel lblNewLabel = new JLabel("Name");
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel.setBounds(12, 10, 57, 32);
+		add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(81, 13, 146, 32);
+		add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblId = new JLabel("ID");
+		lblId.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblId.setBounds(12, 55, 47, 32);
+		add(lblId);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(81, 55, 146, 32);
+		add(textField_1);
+		
+		JButton btnNewButton = new JButton("Button");
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 20));
+		btnNewButton.setBounds(107, 97, 120, 32);
+		add(btnNewButton);
+	}
+}

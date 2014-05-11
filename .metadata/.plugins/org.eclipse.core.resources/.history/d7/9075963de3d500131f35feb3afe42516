@@ -1,0 +1,18 @@
+import static com.googlecode.javacv.cpp.opencv_core.*;
+import static com.googlecode.javacv.cpp.opencv_highgui.*;
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;
+
+public class Sample {
+	private static IplImage frame = null;
+	private static CvCapture capture = null;
+	
+	public static void main(String[] args) {
+		capture = cvCreateCameraCapture(0);
+		
+		while(true){
+			cvShowImage("JavaCV CAM Test (exit = esc)", frame);
+			cvSaveImage("ddd.jpg", frame);
+		}
+	}
+
+}

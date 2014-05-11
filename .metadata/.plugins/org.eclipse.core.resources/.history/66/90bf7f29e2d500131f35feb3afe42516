@@ -1,0 +1,36 @@
+import static com.googlecode.javacv.cpp.opencv_core.*;
+import static com.googlecode.javacv.cpp.opencv_highgui.*;
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;
+
+public class Sample{
+
+public static void main(String[] args){
+
+CvCapture cap1 = cvCreateCameraCapture(0);
+CvCapture cap2 = cvCreateCameraCapture(1);
+
+
+  while (true) {
+   IplImage frame1 = cvQueryFrame(cap1);
+   IplImage frame2 = cvQueryFrame(cap2);
+   
+
+   cvShowImage("cam1", frame1);
+   cvShowImage("cam2", frame2);
+      
+   if (cvWaitKey(15) == 27) { // ESC 저장
+    cvSaveImage("capture1.jpg", frame1);
+    cvSaveImage("capture2.jpg", frame2);
+    }
+   if (cvWaitKey(15) == 96) { // ` 종료
+    break;
+   }
+
+  }
+  cvReleaseCapture(cap1);
+  cvReleaseCapture(cap2);
+  }
+
+ }
+
+}

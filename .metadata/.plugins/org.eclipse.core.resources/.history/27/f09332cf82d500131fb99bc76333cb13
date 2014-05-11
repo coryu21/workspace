@@ -1,0 +1,10 @@
+
+public class Information {
+	private String name, id, sns;
+	
+	public Information(String name, String id, String sns){
+	}
+	
+	public
+
+}

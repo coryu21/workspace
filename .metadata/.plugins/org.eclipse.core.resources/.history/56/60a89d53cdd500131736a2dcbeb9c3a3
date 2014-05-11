@@ -1,0 +1,24 @@
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+public class DeleteJPanel extends ModifyJPanel {
+	public DeleteJPanel() {
+		System.out.println("DeleteJPanel 객체 생성자!");
+		createInterface();
+	}
+	
+	public void createInterface(){
+		name_lb = new JLabel("Name");
+		name_tf = new JTextField();
+		id_lb = new JLabel("ID");
+		id_tf = new JTextField();
+		ad_lb = new JLabel("Address");
+		ad_tf = new JTextField();
+		ad_tf.setColumns(10);
+		btn = new JButton("Button");
+		super.createInterface();
+		super.btn.setText("DELETE");
+	}
+}

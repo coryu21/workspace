@@ -1,0 +1,74 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
+
+public class RightJPanel extends JPanel{
+	JTable table;
+	JButton btn;
+	JScrollPane scrollPane;
+	DefaultTableModel model;
+	DefaultTableCellRenderer dtcr; // 테이블셀 렌더러 객체를 생성.
+	Object column[] = {"Name", "ID", "SNS"};
+	Object[][] data;
+	int v = ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED;
+	int h = ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED;
+	LinkedList list;
+			
+	public RightJPanel(LinkedList list){
+		this.list = list;
+		createInterface();
+	}
+	
+	public void createInterface(){
+		model = new DefaultTableModel(data, column);
+		dtcr = new DefaultTableCellRenderer();
+		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		table = new JTable(model);
+		table.getColumnModel().getColumn(0).setCellRenderer(dtcr);
+		table.getColumnModel().getColumn(1).setCellRenderer(dtcr);
+		table.getColumnModel().getColumn(2).setCellRenderer(dtcr);
+		
+		scrollPane = new JScrollPane(table);
+		btn = new JButton("새로고침");
+		
+		btn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				refreshTable();
+			}
+		});
+		
+		this.setLayout(new BorderLayout());
+		this.add(scrollPane, BorderLayout.NORTH);
+		this.add(btn, BorderLayout.SOUTH);
+	}
+	
+	public void refreshTable(){
+		Iterator<Information> it = list.iterator();
+		Information i;
+		int count = 0;
+		model.setNumRows(0);
+		while (it.hasNext()) {
+			i = it.next();
+			//data[count][0] = i.getName();
+			//data[count][1] = i.getId();
+			//data[count][2] = i.getSns();
+			Object temp[] = { i.getName(), i.getId(), i.getSns()};
+			model.addRow();
+			count++;
+		}
+		
+	}
+}

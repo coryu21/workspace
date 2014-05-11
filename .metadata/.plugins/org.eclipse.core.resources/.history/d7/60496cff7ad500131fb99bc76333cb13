@@ -1,0 +1,12 @@
+import javax.swing.JPanel;
+
+
+public class LeftJPanel extends JPanel{
+	public LeftJPanel(){
+	}
+	
+	public void createInterface(){
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<addComponent
+		id="custom_1395108162974"
+		name="Container"
+		visible="true"
+		class="java.awt.Container"
+		category="org.eclipse.wb.swing.containers"/>
+	<addComponent
+		id="custom_1399381538128"
+		name="JTable"
+		visible="true"
+		class="javax.swing.JTable"
+		category="org.eclipse.wb.swing.components"/>
+</commands>

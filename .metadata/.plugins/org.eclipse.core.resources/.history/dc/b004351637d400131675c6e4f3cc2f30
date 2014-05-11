@@ -1,0 +1,38 @@
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class ModifyJPanel extends BasicJPanel {
+	JTextField ad_tf;
+	JLabel ad_lb;
+	JButton btn;
+	
+	public ModifyJPanel() {
+		System.out.println("InsertJPanel 객체 생성자!");
+		createInterface();
+	}
+
+	public void createInterface() {
+		super.createInterface();
+		ad_lb = new JLabel("Address");
+		ad_lb.setFont(new Font("Dialog", Font.BOLD, 15));
+		ad_lb.setBounds(12, 100, 70, 32);
+		add(ad_lb);
+
+		ad_tf = new JTextField();
+		ad_tf.setColumns(10);
+		ad_tf.setBounds(81, 97, 146, 32);
+		add(ad_tf);
+		
+		btn = new JButton("Button");
+		btn.setFont(new Font("Dialog", Font.BOLD, 15));
+		btn.setBounds(135, 139, 92, 32);
+		add(btn);
+	}
+	
+	public void setButton(String name){
+		this.btn.setName(name);
+	}
+}

@@ -1,0 +1,27 @@
+import java.util.LinkedList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+public class DeleteJPanel extends ModifyJPanel {
+	LinkedList<Information> list;
+	JTextField name_tf;
+	JTextField id_tf;
+	JLabel name_lb;
+	JLabel id_lb;	
+	JTextField ad_tf;
+	JLabel ad_lb;
+	JButton btn;
+	
+	public DeleteJPanel() {
+		System.out.println("DeleteJPanel 객체 생성자!");
+		createInterface();
+	}
+	
+	public void createInterface(){
+		super.createInterface();
+		super.btn.setText("DELETE");
+	}
+}
