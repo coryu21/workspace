@@ -10,17 +10,20 @@ import javax.swing.border.TitledBorder;
 
 
 public class FolderJPanel extends JPanel{
-	JTextField folder_tf;
-	JButton set_btn;
-	TitledBorder title;
-	JFileChooser chooser;
-	String path;
+	private JTextField folder_tf;
+	private JButton set_btn;
+	private TitledBorder title;
+	private JFileChooser chooser;
+	private String path;
 	
 	public FolderJPanel(){
 		chooser = new JFileChooser();
 		createInterface();
 	}
 	
+	public JTextField getFolder(){
+		return folder_tf;
+	}
 	public void createInterface(){
 		
 		chooser.setFileSelectionMode( javax.swing.JFileChooser.DIRECTORIES_ONLY);

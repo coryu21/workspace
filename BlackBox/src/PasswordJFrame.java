@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 public class PasswordJFrame extends JFrame {
-	Container contentPane;
-	JLabel pw_lb;
-	JPasswordField pw_tf;
-	String pw;
-	MouseNoMove mnm;
-	FocusThread ft;
+	private Container contentPane;
+	private JLabel pw_lb;
+	private JPasswordField pw_tf;
+	private String pw;
+	private MouseNoMove mnm;
+	private FocusThread ft;
 	
 	public PasswordJFrame(String pw) {
 		this.pw = pw;

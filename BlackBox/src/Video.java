@@ -11,11 +11,11 @@ import com.googlecode.javacv.cpp.opencv_core.IplImage;
 import com.googlecode.javacv.cpp.opencv_highgui.CvCapture;
 
 public class Video extends Thread{
-	IplImage frame = null;
-	CvCapture capture = null;
-	FrameGrabber grabber;
-	String fileName = "TEST.avi";
-	int sec = 100;
+	private IplImage frame = null;
+	private CvCapture capture = null;
+	private FrameGrabber grabber;
+	private String fileName = "TEST.avi";
+	private int sec = 100;
 	
 	public Video(String fileName, int sec) {
 		grabber = new VideoInputFrameGrabber(0);

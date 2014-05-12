@@ -8,16 +8,16 @@ import javax.swing.JFrame;
 
 
 public class SettingJFrame extends JFrame implements ActionListener{
-	LinkedList list;
-	Container contentPane;
-	FileJPanel fijp;
-	PasswordJPanel pjp;
-	FolderJPanel fojp;
-	BtnJPanel bjp;
-	Boolean check = false;
-	String pw;
-	String path;
-	TrayBlackBox tbb;
+	private LinkedList list;
+	private Container contentPane;
+	private FileJPanel fijp;
+	private PasswordJPanel pjp;
+	private FolderJPanel fojp;
+	private BtnJPanel bjp;
+	private Boolean check = false;
+	private String pw;
+	private String path;
+	private TrayBlackBox tbb;
 	
 	public SettingJFrame(LinkedList list, String pw, TrayBlackBox tbb){
 		this.list = list;
@@ -26,6 +26,13 @@ public class SettingJFrame extends JFrame implements ActionListener{
 		createInterface();
 	}
 	
+	public String getPath(){
+		return path;
+	}
+	
+	public String getPw(){
+		return pw;
+	}
 	public void createInterface(){
 		contentPane = this.getContentPane();
 		fijp = new FileJPanel(list);
@@ -55,10 +62,10 @@ public class SettingJFrame extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == bjp.getOK()){
-			pw = pjp.pw_tf.getText();
+			pw = pjp.getPw().getText();
 			tbb.setText(pw);
 			System.out.println(pw);
-			path = fojp.folder_tf.getText();
+			path = fojp.getFolder().getText();
 			check = true;
 		}
 		if(e.getSource() == bjp.getCancle()){

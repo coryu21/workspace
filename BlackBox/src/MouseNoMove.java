@@ -2,7 +2,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 
 public class MouseNoMove extends Thread {
-	Robot robot;
+	private Robot robot;
 	
 	public MouseNoMove() {
 		try {

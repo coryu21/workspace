@@ -3,8 +3,8 @@ import javax.swing.JPanel;
 
 
 public class BtnJPanel extends JPanel{
-	JButton ok_btn;
-	JButton cancle_btn;
+	private JButton ok_btn;
+	private JButton cancle_btn;
 	
 	public BtnJPanel(){
 		createInterface();

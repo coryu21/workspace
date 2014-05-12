@@ -4,13 +4,13 @@ import java.util.LinkedList;
 
 
 public class WatchThread extends Thread{
-	LinkedList list;
-	long date[];
-	Boolean checkFile = true;
-	Boolean checkUsb = true;
-	String pw;
-	String drive_name[];
-	Video video;
+	private LinkedList list;
+	private long date[];
+	private Boolean checkFile = true;
+	private Boolean checkUsb = true;
+	private String pw;
+	private String drive_name[];
+	private Video video;
 	
 	public WatchThread(LinkedList list, String pw){
 		this.list = list;

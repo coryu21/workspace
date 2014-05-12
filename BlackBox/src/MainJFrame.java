@@ -10,14 +10,14 @@ import javax.swing.JFrame;
 
 
 public class MainJFrame extends JFrame implements ActionListener{
-	Container contentPane;
-	JButton start_btn, setting_btn, exit_btn;
-	SettingJFrame sjf;
-	WatchThread wt;
-	LinkedList list;
-	String pw;
-	Video video;
-	TrayBlackBox tbb;
+	private Container contentPane;
+	private JButton start_btn, setting_btn, exit_btn;
+	private SettingJFrame sjf;
+	private WatchThread wt;
+	private LinkedList list;
+	private String pw;
+	private Video video;
+	private TrayBlackBox tbb;
 	public MainJFrame(){
 		list = new LinkedList();
 		tbb = new TrayBlackBox(this, "1234");
@@ -55,10 +55,10 @@ public class MainJFrame extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==start_btn){
-			String fileName = sjf.path + "\\BlackBox.avi";
+			String fileName = sjf.getPath() + "\\BlackBox.avi";
 			System.out.println(fileName);
 			video = new Video(fileName, 300);
-			wt = new WatchThread(list, sjf.pw);
+			wt = new WatchThread(list, sjf.getPw());
 			wt.setVideo(video);
 			wt.start();
 			this.setVisible(false);

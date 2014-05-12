@@ -5,14 +5,17 @@ import javax.swing.border.TitledBorder;
 
 
 public class PasswordJPanel extends JPanel{
-	JLabel pw_lb;
-	JPasswordField pw_tf;
-	TitledBorder title;
+	private JLabel pw_lb;
+	private JPasswordField pw_tf;
+	private TitledBorder title;
 	
 	public PasswordJPanel(){
 		createInterface();
 	}
 	
+	public JPasswordField getPw(){
+		return pw_tf;
+	}
 	public void createInterface(){
 		pw_lb = new JLabel("PASSWORD");
 		pw_tf = new JPasswordField(10);

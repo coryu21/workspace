@@ -12,12 +12,12 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 
 public class FileJPanel extends JPanel {
-	JTextArea ta;
-	JButton search_btn;
-	TitledBorder title;
-	LinkedList list;
-	JFileChooser chooser;
-	JScrollPane scrollPane;
+	private JTextArea ta;
+	private JButton search_btn;
+	private TitledBorder title;
+	private LinkedList list;
+	private JFileChooser chooser;
+	private JScrollPane scrollPane;
 
 	public FileJPanel(LinkedList list) {
 		this.list = list;
