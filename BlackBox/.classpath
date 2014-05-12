@@ -10,5 +10,9 @@
 	<classpathentry kind="lib" path="E:/javacv-bin/javacv-macosx-x86_64.jar"/>
 	<classpathentry kind="lib" path="E:/javacv-bin/javacv-windows-x86.jar"/>
 	<classpathentry kind="lib" path="E:/javacv-bin/javacv-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/workspace/BlackBox/TestLookAndFeel/lib/idw-gpl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/workspace/BlackBox/TestLookAndFeel/lib/JTattoo.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/workspace/BlackBox/TestLookAndFeel/lib/liquidlnf.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/workspace/BlackBox/TestLookAndFeel/lib/quaqua.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

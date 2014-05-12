@@ -14,12 +14,15 @@ public class PasswordJFrame extends JFrame {
 	JPasswordField pw_tf;
 	String pw;
 	MouseNoMove mnm;
-
+	FocusThread ft;
+	
 	public PasswordJFrame(String pw) {
 		this.pw = pw;
 		createInterface();
 		this.mnm = new MouseNoMove();
+		this.ft = new FocusThread();
 		mnm.start();
+		ft.start();
 	}
 
 	public void createInterface() {
@@ -57,16 +60,29 @@ public class PasswordJFrame extends JFrame {
 		});
 
 	}
+	
+	public JFrame getJFrame(){
+		return this;
+	}
 
 	public void check() {
 		if (pw_tf.getText().equals(pw)) {
 			JOptionPane.showMessageDialog(null, "비밀번호가 일치합니다");
 			mnm.stop();
+			ft.stop();
 			this.dispose();
 		} else {
 			JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다");
 			pw_tf.setText("");
 		}
 
+	}
+	
+	class FocusThread extends Thread{
+		public void run(){
+			while(true){
+				getJFrame().toFront();
+			}
+		}
 	}
 }

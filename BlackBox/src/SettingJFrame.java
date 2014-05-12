@@ -15,9 +15,14 @@ public class SettingJFrame extends JFrame implements ActionListener{
 	FolderJPanel fojp;
 	BtnJPanel bjp;
 	Boolean check = false;
+	String pw;
+	String path;
+	TrayBlackBox tbb;
 	
-	public SettingJFrame(){
-		list = new LinkedList();
+	public SettingJFrame(LinkedList list, String pw, TrayBlackBox tbb){
+		this.list = list;
+		this.pw = pw;
+		this.tbb = tbb;
 		createInterface();
 	}
 	
@@ -50,6 +55,10 @@ public class SettingJFrame extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == bjp.getOK()){
+			pw = pjp.pw_tf.getText();
+			tbb.setText(pw);
+			System.out.println(pw);
+			path = fojp.folder_tf.getText();
 			check = true;
 		}
 		if(e.getSource() == bjp.getCancle()){

@@ -2,7 +2,9 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -11,26 +13,32 @@ public class MainJFrame extends JFrame implements ActionListener{
 	Container contentPane;
 	JButton start_btn, setting_btn, exit_btn;
 	SettingJFrame sjf;
-	
+	WatchThread wt;
+	LinkedList list;
+	String pw;
+	Video video;
+	TrayBlackBox tbb;
 	public MainJFrame(){
+		list = new LinkedList();
+		tbb = new TrayBlackBox(this, "1234");
 		createInterface();
 	}
 
 	public void createInterface(){
-		sjf = new SettingJFrame();
-		
+		sjf = new SettingJFrame(list, pw, tbb);
 		contentPane = this.getContentPane();
 		contentPane.setLayout(new FlowLayout());
 		
-		start_btn = new JButton("START");
-		setting_btn = new JButton("SETTING");
-		exit_btn = new JButton("EXIT");
+		start_btn = new JButton(new ImageIcon("images/start.png"));
+		setting_btn = new JButton(new ImageIcon("images/setting.png"));
+		exit_btn = new JButton(new ImageIcon("images/exit.png"));
 		btnEvent();
 		
 		contentPane.add(start_btn);
 		contentPane.add(setting_btn);
 		contentPane.add(exit_btn);
 		
+		this.setUndecorated(true);
 		this.setTitle("BLACK BOX");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -47,7 +55,13 @@ public class MainJFrame extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==start_btn){
-			
+			String fileName = sjf.path + "\\BlackBox.avi";
+			System.out.println(fileName);
+			video = new Video(fileName, 300);
+			wt = new WatchThread(list, sjf.pw);
+			wt.setVideo(video);
+			wt.start();
+			this.setVisible(false);
 		}
 		if(e.getSource()==setting_btn){
 			sjf.setVisible(true);
@@ -57,9 +71,4 @@ public class MainJFrame extends JFrame implements ActionListener{
 		}
 		
 	}
-	
-	public static void main(String args[]){
-		new MainJFrame();
-	}
-	
 }

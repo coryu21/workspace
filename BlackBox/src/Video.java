@@ -10,21 +10,26 @@ import com.googlecode.javacv.FrameGrabber.Exception;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
 import com.googlecode.javacv.cpp.opencv_highgui.CvCapture;
 
-public class Video{
+public class Video extends Thread{
 	IplImage frame = null;
 	CvCapture capture = null;
 	FrameGrabber grabber;
 	String fileName = "TEST.avi";
 	int sec = 100;
+	
 	public Video(String fileName, int sec) {
 		grabber = new VideoInputFrameGrabber(0);
 		this.fileName = fileName;
 		this.sec = sec;
-		capture(this.fileName, this.sec);
 	}
 
-	public void capture(String fileName, int sec) {
+	public void run(){
+		capture();
+	}
+	
+	public void capture() {
 		try {
+			System.out.println("촬영이 시작되었습니다.");
 			grabber.start();
 			FrameRecorder recorder = new OpenCVFrameRecorder(fileName, 640, 480);
 			recorder.setVideoCodec(CV_FOURCC('M', 'J', 'P', 'G'));
@@ -39,6 +44,7 @@ public class Video{
 			}
 			recorder.stop();
 			grabber.stop();
+			System.out.println("촬영이 완료되었습니다");
 
 		} catch (Exception | com.googlecode.javacv.FrameRecorder.Exception e) {
 			e.printStackTrace();
