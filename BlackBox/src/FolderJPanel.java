@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 
-public class FolderJPanel extends JPanel{
+public class FolderJPanel extends JPanel{ // 동영상 저장 폴더를 설정하는 패널
 	private JTextField folder_tf;
 	private JButton set_btn;
 	private TitledBorder title;

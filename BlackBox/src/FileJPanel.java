@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 
-public class FileJPanel extends JPanel {
+public class FileJPanel extends JPanel { // 파일의 접근을 설정하는 패널
 	private JTextArea ta;
 	private JButton search_btn;
 	private TitledBorder title;

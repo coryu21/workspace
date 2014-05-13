@@ -11,9 +11,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class TrayBlackBox implements ActionListener {
+public class TrayBlackBox implements ActionListener { // 블랙박스 트레이 아이콘
 
-	// SystemTray클래스를 얻어옵니다.
 	private SystemTray tray = SystemTray.getSystemTray();
 	private TrayIcon tray_icon;
 	MenuItem show;
@@ -61,7 +60,7 @@ public class TrayBlackBox implements ActionListener {
 		if(e.getSource() == hide){
 			main.setVisible(false);
 		}
-		if(e.getSource() == show){
+		if(e.getSource() == show){ // 블랙박스 창을 띄우기 위해서는 비밀번호를 입력해야 한다.
 			String pw = JOptionPane.showInputDialog("비밀번호를 입력해주세요");
 			if(this.pw.equals(pw)){
 				main.setVisible(true);

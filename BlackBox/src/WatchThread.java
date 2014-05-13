@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 
-public class WatchThread extends Thread{
+public class WatchThread extends Thread{ // USB 사용과 지정한 파일의 수정 시 작동하는 쓰레드
 	private LinkedList list;
 	private long date[];
 	private Boolean checkFile = true;
@@ -11,10 +11,12 @@ public class WatchThread extends Thread{
 	private String pw;
 	private String drive_name[];
 	private Video video;
+	private ScreenCapture sc;
 	
 	public WatchThread(LinkedList list, String pw){
 		this.list = list;
 		this.pw = pw;
+		sc = new ScreenCapture(this.pw);
 		date = new long[256];
 		drive_name = new String[256];
 	}
@@ -36,7 +38,7 @@ public class WatchThread extends Thread{
 		int count = 0;
 		String fileName;
 		File temp;
-		File list[];
+		
 		
 		while(it.hasNext()){	
 			fileName = ((File)it.next()).getPath();
@@ -46,14 +48,14 @@ public class WatchThread extends Thread{
 			count++;
 		}
 		
-		list = File.listRoots();
+		File list[] = File.listRoots();
 		
 		for(int i = 0; i<list.length; i++){
-			drive_name[i] = list[i].getName();
+			drive_name[i] = list[i].getPath();
 		}
 	}
 	
-	public void fileWatch(){
+	public void fileWatch(){ // 파일의 수정 유무 확인
 		Iterator it = list.iterator();
 		long last;
 		String fileName;
@@ -67,19 +69,21 @@ public class WatchThread extends Thread{
 				System.out.println("파일이 변하였다!!!!");
 				checkFile = false;
 				new PasswordJFrame(pw);
-				video.capture();
+				video.start();
+				sc.start();
 			}
 		}
 	}
 	
-	public void usbWatch(){
+	public void usbWatch(){ // USB 연결 확인
 		File list[] = File.listRoots();
 		
 		for(int i = 0; i<list.length && checkUsb; i++){
-			if(!drive_name[i].equals(list[i].getName())){
+			if(!drive_name[i].equals(list[i].getPath())){
 				checkUsb = false;
 				new PasswordJFrame(pw);
-				video.capture();
+				video.start();
+				sc.start();
 			}
 		}
 		

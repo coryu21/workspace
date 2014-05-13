@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import javax.swing.JFrame;
 
 
-public class SettingJFrame extends JFrame implements ActionListener{
+public class SettingJFrame extends JFrame implements ActionListener{ // 환경설정 창
 	private LinkedList list;
 	private Container contentPane;
 	private FileJPanel fijp;
@@ -60,8 +60,8 @@ public class SettingJFrame extends JFrame implements ActionListener{
 	}
 
 	
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == bjp.getOK()){
+	public void actionPerformed(ActionEvent e) { 
+		if(e.getSource() == bjp.getOK()){ // OK 버튼을 누르면 설정해놓은 값이 각 객체로 들어간다.
 			pw = pjp.getPw().getText();
 			tbb.setText(pw);
 			System.out.println(pw);

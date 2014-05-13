@@ -4,7 +4,7 @@ import javax.swing.JPasswordField;
 import javax.swing.border.TitledBorder;
 
 
-public class PasswordJPanel extends JPanel{
+public class PasswordJPanel extends JPanel{ // 비밀번호를 설정하는 패널
 	private JLabel pw_lb;
 	private JPasswordField pw_tf;
 	private TitledBorder title;

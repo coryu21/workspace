@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
-public class PasswordJFrame extends JFrame {
+public class PasswordJFrame extends JFrame { // 블랙박스가 동작하면 올바른 비밀번호를 입력할 때까지 마우스와 키보드(비밀번호 입력 제외)의 사용을 못하게 한다.
 	private Container contentPane;
 	private JLabel pw_lb;
 	private JPasswordField pw_tf;

@@ -10,7 +10,7 @@ import com.googlecode.javacv.FrameGrabber.Exception;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
 import com.googlecode.javacv.cpp.opencv_highgui.CvCapture;
 
-public class Video extends Thread{
+public class Video extends Thread{ // 웹캠을 이용하여 동영상을 만드는 쓰레드
 	private IplImage frame = null;
 	private CvCapture capture = null;
 	private FrameGrabber grabber;

@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
-public class MainJFrame extends JFrame implements ActionListener{
+public class MainJFrame extends JFrame implements ActionListener{ // 기본 화면
 	private Container contentPane;
 	private JButton start_btn, setting_btn, exit_btn;
 	private SettingJFrame sjf;
