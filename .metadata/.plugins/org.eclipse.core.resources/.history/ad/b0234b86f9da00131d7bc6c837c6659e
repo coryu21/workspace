@@ -1,0 +1,8 @@
+
+public class User implements Runnable{
+	Counter c;
+	public User(Counter c){
+		this.c = c;
+	}
+
+}

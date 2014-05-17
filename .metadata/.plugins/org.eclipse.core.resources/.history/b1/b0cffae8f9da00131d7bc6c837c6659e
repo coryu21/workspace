@@ -1,0 +1,6 @@
+
+public class RunnableObject implements Runnable{
+	private static Random generator = new Random();
+	
+
+}

@@ -1,0 +1,7 @@
+
+public class Main {
+	public static void main(String args[]){
+		MainJFrame mjf = new MainJFrame();
+		UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+	}
+}

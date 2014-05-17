@@ -1,0 +1,36 @@
+public class Counter {
+	private int c = 0;
+	private boolean isNew = false;
+	
+	public synchronized void increment() {
+		try {
+			while (isNew) {
+				System.out.println("increment waiting()...");
+				wait();
+			}
+		} catch (Exception e) {
+		}
+		System.out.println(++c);
+		if(c==10) isNew = true;
+		notifyAll();
+		System.out.println("increment notifyAll()...");
+	}
+
+	public synchronized void decrement() {
+		try {
+			while (!isNew) {
+				System.out.println("decrement waiting()...");
+				wait();
+			}
+		} catch (Exception e) {
+		}
+		System.out.println(--c);
+		if(c==0) isNew = false;
+		notifyAll();
+		System.out.println("decrement notifyAll()...");
+	}
+
+	public int getCount() {
+		return c;
+	}
+}

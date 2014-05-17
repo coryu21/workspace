@@ -1,0 +1,82 @@
+public class TwoDTreeSearch {
+	Node head;
+	Node z;
+	Point1 dummy;
+
+	public TwoDTreeSearch() {
+		head = new Node();
+		z = new Node();
+		dummy = new Point1();
+	}
+
+	public boolean insiderect(Point1 p, Rect range) {
+		return (p.x >= range.x1 && p.x <= range.x2)
+				&& (p.y >= range.y1 && p.y <= range.y2);
+	}
+
+	public void inesrt(Point1 p) {
+		Node f = null, t;
+		boolean d, td = false;
+
+		for (d = true, t = head; t != z; d = !d) {
+			td = d ? (p.x < t.p.x) : (p.y < t.p.y);
+			f = t;
+			t = td ? t.l : t.r;
+		}
+
+		t = new Node();
+		t.p = p;
+		t.l = z;
+		t.r = z;
+		if (td) {
+			f.l = t;
+		} else {
+			f.r = t;
+		}
+	}
+
+	public int serach(Rect range) {
+		return searchr(head.r, range, false);
+	}
+
+	public int searchr(Node t, Rect range, boolean d) {
+		int count = 0;
+		boolean t1, t2, tx1, tx2, ty1, ty2;
+		if (t == z)
+			return 0;
+		tx1 = range.x1 < t.p.x;
+		tx2 = t.p.x <= range.x2;
+		ty1 = range.y1 < t.p.y;
+		ty2 = t.p.y <= range.y2;
+
+		t1 = d ? tx1 : ty1;
+		t2 = d ? tx2 : ty2;
+		
+		if(t1) count += searchr(t.l, range, !d);
+		if(insiderect(t.p, range)) count++;
+		if(t2) count += searchr(t.r, range, !d);
+		return count;
+	}
+	
+	public static void main(String args[]) { // 인덱스 1부터 시작하게!
+		Graham gh = new Graham();
+
+		int i, M;
+		Point1 p[] = new Point1[gh.N + 1];
+		p[0] = new Point1();
+		for (i = 1; i <= gh.N; i++) {
+			p[i] = new Point1();
+			p[i].x = gh.x_value[i - 1];
+			p[i].y = gh.y_value[i - 1];
+			p[i].c = gh.c_value[i - 1];
+			System.out.println((char) p[i].c + "  " + p[i].x + ", " + p[i].y);
+		}
+
+		M = gh.scan(p, gh.N);
+
+		for (i = 1; i <= M; i++) {
+			System.out.printf("%c ", p[i].c);
+		}
+		System.out.println();
+	}
+}

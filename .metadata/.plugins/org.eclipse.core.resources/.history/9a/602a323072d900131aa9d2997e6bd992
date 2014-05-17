@@ -1,0 +1,58 @@
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TrayBlackBox implements ActionListener {
+
+	// SystemTray클래스를 얻어옵니다.
+	private SystemTray tray = SystemTray.getSystemTray();
+	private TrayIcon tray_icon;
+	//private JFrame main;
+
+	public TrayBlackBox(){
+		initTray();
+	}
+	
+	private void initTray() {
+		Image image = Toolkit.getDefaultToolkit().getImage("images/Koala.jpg");
+
+		tray_icon = new TrayIcon(image, "BlackBox", null);
+		tray_icon.setImageAutoSize(true);
+
+		try {
+			tray.add(tray_icon);
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public PopupMenu cratePopupMenu(){
+		PopupMenu menu = new PopupMenu();
+		
+		MenuItem show = new MenuItem("SHOW");
+		MenuItem hide = new MenuItem("HIDE");
+		
+		show.addActionListener(this);
+		show.addActionListener(this);
+		menu.add(show);
+		menu.add(hide);
+		
+		return menu;
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+	public static void main(String args[]) {
+		new TrayBlackBox();
+	}
+
+	
+}

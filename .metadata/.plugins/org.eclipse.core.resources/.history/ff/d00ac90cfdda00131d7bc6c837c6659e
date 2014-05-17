@@ -1,0 +1,22 @@
+public class Counter {
+	private int c = 0;
+
+	public synchronized void increment() {
+		try{
+			while(getCount()>10)
+				System.out.println("increment waiting()...");
+				wait();
+		}catch(Exception e){
+			
+		}
+		c++;
+	}
+
+	public synchronized void decrement() {
+		c--;
+	}
+
+	public int getCount() {
+		return c;
+	}
+}

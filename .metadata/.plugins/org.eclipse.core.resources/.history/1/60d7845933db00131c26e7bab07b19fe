@@ -1,0 +1,136 @@
+public class Huffman {
+	int SIZE = 100;
+	PQ pq;
+
+	Huffman() {
+		pq = new PQ();
+	}
+
+	class PQ {
+		int heap[];
+		int info[];
+		int n;
+
+		public PQ() {
+			heap = new int[SIZE];
+			info = new int[100];
+			n = 0;
+		}
+	}
+
+	void insert_pq(int v, int x) {
+		int i;
+		pq.n++;
+		for (i = pq.n;;) {
+			if (i == 1)
+				break;
+			if (v >= pq.heap[i / 2])
+				break;
+			pq.heap[i] = pq.heap[i / 2];
+			pq.info[i] = pq.info[i / 2];
+			i /= 2;
+		}
+		pq.heap[i] = v;
+		pq.info[i] = x;
+	}
+
+	int remove_pq() {
+		int i, j, x, temp_v, temp_x;
+		x = pq.info[1];
+		temp_v = pq.heap[pq.n];
+		temp_x = pq.info[pq.n];
+		pq.n--;
+		i = 1;
+		j = 2;
+		while (j <= pq.n) {
+			if (j < pq.n && pq.heap[j] > pq.heap[j + 1])
+				j++;
+			if (temp_v <= pq.heap[j])
+				break;
+			pq.heap[i] = pq.heap[j];
+			pq.info[i] = pq.info[j];
+			i = j;
+			j *= 2;
+		}
+		pq.heap[i] = temp_v;
+		pq.heap[j] = temp_x;
+		return x;
+	}
+
+	int index(char c) {
+		if (c == 32 && c == null)
+			return 0;
+		else
+			return (c - 64);
+	}
+
+	boolean isEmpty() {
+		if (pq.n == 0)
+			return true;
+		else
+			return false;
+	}
+
+	public static void main(String args[]) {
+		String str = "VISION QUESTION ONION CAPTION GRADUATION EDUCATION";
+		char text[] = new char[100];
+		for(int index = 0; index<str.length(); index++){
+			text[index] = str.charAt(index);
+		}
+		int count[] = new int[100];
+		int dad[] = new int[100];
+		int len[] = new int[27];
+		int code[] = new int[27];
+		int i, j, k, t, t1, t2, x, M = text.length, cnt = 0;
+
+		Huffman huf = new Huffman();
+
+		for (i = 0; i < 100; i++) {
+			count[i] = 0;
+			dad[i] = 0;
+		}
+
+		for (i = 0; i < M; i++)
+			count[huf.index(text[i])]++;
+
+		for (i = 0; i <= 26; i++) {
+			if (count[i] > 0)
+				huf.insert_pq(count[i], i);
+		}
+		for (; !huf.isEmpty(); i++) {
+			t1 = huf.remove_pq();
+			t2 = huf.remove_pq();
+			dad[i] = 0;
+			dad[t1] = i;
+			dad[t2] = -i;
+			count[i] = count[t1] + count[t2];
+			if (!huf.isEmpty())
+				huf.insert_pq(count[i], i);
+		}
+
+		for (k = 0; k <= 26; k++) {
+			i = 0;
+			x = 0;
+			j = 1;
+			if (count[k] > 0) {
+				for (t = dad[k]; t > 0; t = dad[t], j += j, i++) {
+					if (t < 0) {
+						x += j;
+						t = -t;
+					}
+				}
+			}
+			code[k] = x;
+			len[k] = i;
+		}
+
+		for (j = 0; j <= M; j++) {
+			for (i = len[huf.index(text[j])]; i > 0; i--) {
+				System.out.print(code[huf.index(text[j])]>>(i-1) & 1);
+				cnt++;
+				if(cnt%50==0) System.out.println();
+			}
+		}
+		System.out.println();
+	}
+}

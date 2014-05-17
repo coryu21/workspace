@@ -1,0 +1,96 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class TestConvexHull {
+	JarvisMarch jm;
+	Graham gra;
+	Point1 p1[];
+	Point1 p2[];
+	int m1;
+	int m2;
+	int size;
+	long startTime; 
+	long endTime;
+	long exectueTime1;
+	long exectueTime2;
+	
+	public TestConvexHull() {
+		jm = new JarvisMarch();
+		gra = new Graham();
+	}
+
+	public void test() {
+		startTime = System.currentTimeMillis();
+		m1 = jm.PackageWrapping(p1, size);
+		endTime = System.currentTimeMillis();
+		exectueTime1 = endTime - startTime;
+		System.out.println();
+
+		startTime = System.currentTimeMillis();
+		m2 = gra.scan(p2, size);
+		endTime = System.currentTimeMillis();
+		exectueTime2 = endTime - startTime;
+		
+		System.out.println("짐꾸리기 알고리즘 실행시간 : " + exectueTime1);
+		System.out.println("그라함 스캔 알고리즘 실행시간 : " + exectueTime2);
+	}
+
+	public void makePoint(int size) {
+		this.size = size;
+		ArrayList<Integer> x_random = new ArrayList<Integer>();
+		ArrayList<Integer> y_random = new ArrayList<Integer>();
+		ArrayList<String> c_random = new ArrayList<String>();
+		char arr[][] = new char[size+1][size+1];
+		
+		p1 = new Point1[size + 1];
+		p2 = new Point1[size + 1];
+
+		for (int i = 1; i <= size; i++) {
+			x_random.add(i);
+			y_random.add(i);
+			c_random.add("점" + Integer.toString(i));
+		}
+
+		Collections.shuffle(x_random);
+		Collections.shuffle(y_random);
+
+		p2[0] = new Point1();
+
+		for (int i = 0; i < size; i++) {
+			p1[i] = new Point1();
+			p2[i + 1] = new Point1();
+			p1[i].x = x_random.get(i);
+			p1[i].y = y_random.get(i);
+			p1[i].c = c_random.get(i);
+			p2[i + 1].x = x_random.get(i);
+			p2[i + 1].y = y_random.get(i);
+			p2[i + 1].c = c_random.get(i);
+		}
+		/*
+		for (int i = 0; i < size; i++) {
+			System.out.printf("p1.x = %d,\tp1.y = %d,\tp1.c = %s\n", p1[i].x,
+					p1[i].y, p1[i].c);
+			System.out.printf("p2.x = %d ,\tp2.y = %d,\tp2.c = %s\n",
+					p2[i + 1].x, p2[i + 1].y, p2[i + 1].c);
+			System.out.println();
+		}
+
+		for(int i = 0; i<size; i++){
+			arr[p1[i].x][p1[i].y] = '.';
+		}
+		for(int i = 0; i<size; i++){
+			for(int j = 0; j<size; j++){
+				System.out.print(arr[i][j] +" ");
+			}
+			System.out.println();
+		}
+		*/
+	}
+
+	public static void main(String args[]) {
+		TestConvexHull tch = new TestConvexHull();
+		tch.makePoint(6000);
+		tch.test();
+	}
+
+}

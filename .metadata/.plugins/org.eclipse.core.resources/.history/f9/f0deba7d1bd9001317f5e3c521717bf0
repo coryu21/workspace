@@ -1,0 +1,6 @@
+
+public class FolderJPanel {
+	JTextField folder_tf;
+	
+
+}

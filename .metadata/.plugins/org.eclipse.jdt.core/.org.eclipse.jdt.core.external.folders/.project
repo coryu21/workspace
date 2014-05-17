@@ -19,5 +19,10 @@
 			<type>2</type>
 			<location>C:/opencv/javacv-bin</location>
 		</link>
+		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>C:/Users/Administrator/workspace/BlackBox/TestLookAndFeel/lib/System/Library/Java</location>
+		</link>
 	</linkedResources>
 </projectDescription>

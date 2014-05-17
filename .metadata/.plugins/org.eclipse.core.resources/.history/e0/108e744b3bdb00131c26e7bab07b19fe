@@ -1,0 +1,15 @@
+
+public class SKIP {
+	
+	int skip[];
+	
+	public SKIP(){
+		skip = new int[128];
+	}
+	
+	public void initSkip(String pattern){
+		char p [] = pattern.toCharArray();
+		
+	}
+
+}

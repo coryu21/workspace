@@ -1,0 +1,22 @@
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
+
+
+public class FileJPanel {
+	JTextArea ta;
+	JButton search_btn;
+	TitledBorder title;
+	
+	public FileJPanel(){
+		
+	}
+	
+	public void createInterface(){
+		ta = new JTextArea();
+		search_btn = new JButton("SEARCH");
+		
+	}
+	
+
+}

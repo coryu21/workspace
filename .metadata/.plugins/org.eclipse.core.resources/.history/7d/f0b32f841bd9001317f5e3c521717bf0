@@ -1,0 +1,7 @@
+
+public class FolderJPanel extends JPanel{
+	JTextField folder_tf;
+	TitledBorder title;
+	
+
+}

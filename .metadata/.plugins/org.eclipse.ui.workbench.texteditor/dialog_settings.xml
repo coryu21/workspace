@@ -3,9 +3,9 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="261" key="DIALOG_WIDTH"/>
 		<item value="295" key="DIALOG_Y_ORIGIN"/>
-		<item value="381" key="DIALOG_HEIGHT"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
 		<item value="801" key="DIALOG_X_ORIGIN"/>
-		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
@@ -13,26 +13,26 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wholeword"/>
-		<item value="event" key="selection"/>
+		<item value="tdt" key="selection"/>
 		<list key="findhistory">
+			<item value="gh"/>
+			<item value="arr"/>
+			<item value="m_ti"/>
 			<item value="updateEvent"/>
 			<item value="searchEvent"/>
 			<item value="insertEvent"/>
 			<item value="deleteEvent"/>
 			<item value="btnNewButton"/>
-			<item value="lblId"/>
-			<item value="lblNewLabel"/>
-			<item value="lb"/>
 		</list>
 		<list key="replacehistory">
+			<item value="tdt"/>
+			<item value="is"/>
+			<item value="p"/>
+			<item value="tray_icon"/>
 			<item value="event"/>
 			<item value="btn"/>
 			<item value="id_lb"/>
 			<item value="name_lb"/>
-			<item value="id_tf"/>
-			<item value="name_tf"/>
-			<item value="ad_tf"/>
-			<item value="ad_lb"/>
 		</list>
 	</section>
 </section>

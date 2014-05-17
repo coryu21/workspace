@@ -18,6 +18,7 @@ public class MainJFrame extends JFrame implements ActionListener{ // 기본 화�
 	private String pw;
 	private Video video;
 	private TrayBlackBox tbb;
+	
 	public MainJFrame(){
 		list = new LinkedList();
 		tbb = new TrayBlackBox(this, "1234");

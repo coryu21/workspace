@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Couter&apos; to &apos;Counter&apos;&#x0D;&#x0A;- Original project: &apos;HW11&apos;&#x0D;&#x0A;- Original element: &apos;Couter&apos;&#x0D;&#x0A;- Renamed element: &apos;Counter&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Couter&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Couter.java[Couter" matchStrategy="1" name="Counter" qualified="false" references="true" similarDeclarations="false" stamp="1400025086090" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,17 @@
+import java.util.LinkedList;
+
+import javax.swing.JFrame;
+
+
+public class SettingJFrame extends JFrame{
+	LinkedList list;
+	
+	public SettingJFrame(){
+		
+	}
+	
+	public void createInterface(){
+		
+	}
+
+}

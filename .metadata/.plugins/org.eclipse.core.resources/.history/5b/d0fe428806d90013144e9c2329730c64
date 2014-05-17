@@ -1,0 +1,36 @@
+import java.awt.Container;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+public class PasswordJFrame extends JFrame{
+	Container contentPane;
+	JLabel pw_lb;
+	JTextField pw_tf;
+	String pw;
+	
+	public PasswordJFrame(String pw){
+		this.pw = pw;
+	}
+	
+	public void createInterface(){
+		contentPane = this.getContentPane();
+		pw_lb = new JLabel("PASSWORD :");
+		
+		
+		
+		this.setUndecorated(false);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.pack();
+		this.setResizable(false);
+		this.setVisible(true);
+	}
+	
+	public void pwEvent(){
+		
+	}
+		
+}

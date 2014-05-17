@@ -1,0 +1,11 @@
+public class Couter {
+	private int c = 0;
+	
+	public void increment(){
+		c++;
+	}
+	
+	public void decrement(){
+		c--;
+	}
+}

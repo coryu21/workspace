@@ -1,0 +1,18 @@
+public class Counter {
+	private int c = 0;
+
+	public synchronized void increment() {
+		try{
+			while(getCount()>10)
+		}
+		c++;
+	}
+
+	public synchronized void decrement() {
+		c--;
+	}
+
+	public int getCount() {
+		return c;
+	}
+}

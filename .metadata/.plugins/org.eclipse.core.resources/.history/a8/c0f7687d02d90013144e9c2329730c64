@@ -1,0 +1,36 @@
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+
+public class MainJFrame extends JFrame{
+	Container contentPane;
+	JButton start_btn, setting_btn, exit_btn;
+			
+	public MainJFrame(){
+		createInterface();
+	}
+
+	public void createInterface(){
+		contentPane = this.getContentPane();
+		contentPane.setLayout(new FlowLayout());
+		start_btn = new JButton("START");
+		setting_btn = new JButton("SETTING");
+		exit_btn = new JButton("EXIT");
+		
+		contentPane.add(start_btn);
+		contentPane.add(setting_btn);
+		contentPane.add(exit_btn);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.pack();
+		this.setResizable(false);
+		this.setVisible(true);
+	}
+	
+	public static void main(String args[]){
+		new MainJFrame();
+	}
+	
+}

@@ -1,0 +1,5 @@
+
+public class Couter {
+	private int c = 0;
+	
+}

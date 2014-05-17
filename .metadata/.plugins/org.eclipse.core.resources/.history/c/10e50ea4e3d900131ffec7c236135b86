@@ -1,0 +1,65 @@
+import static com.googlecode.javacv.cpp.opencv_highgui.CV_FOURCC;
+import static com.googlecode.javacv.cpp.opencv_core.*;
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;
+import static com.googlecode.javacv.cpp.opencv_highgui.*;
+
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+
+import com.googlecode.javacv.FrameRecorder;
+import com.googlecode.javacv.FrameRecorder.Exception;
+import com.googlecode.javacv.OpenCVFrameRecorder;
+import com.googlecode.javacv.cpp.opencv_core.IplImage;
+
+public class ScreenCapture extends Thread {
+	private Robot capture;
+	private Rectangle area;
+	private BufferedImage bi;
+	private String fileName;
+	private String path;
+	private IplImage frame;
+
+	public ScreenCapture(String path) {
+		this.path = path;
+		this.fileName = path + "\\Capture.avi";
+		try {
+			capture = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void capture() {
+		area = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+		FrameRecorder recorder = new OpenCVFrameRecorder(fileName, 640, 480);
+		recorder.setVideoCodec(CV_FOURCC('M', 'J', 'P', 'G'));
+		recorder.setPixelFormat(1);
+		recorder.setFrameRate(22);
+
+		try {
+			recorder.start();
+			for (int i = 0; i < 100; i++) {
+				bi = capture.createScreenCapture(area);
+				frame = IplImage.createFrom(bi);
+				cvSaveImage("C:\\Users\\Administrator\\Desktop\\test.jpg",
+						frame);
+				// recorder.record(frame);
+			}
+			recorder.stop();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void run() {
+		capture();
+	}
+
+	public static void main(String args[]) {
+		new ScreenCapture("C:\\Users\\Administrator\\Desktop").capture();
+	}
+
+}

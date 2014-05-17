@@ -1,0 +1,21 @@
+import java.awt.Container;
+import java.util.LinkedList;
+
+import javax.swing.JFrame;
+
+
+public class SettingJFrame extends JFrame{
+	LinkedList list;
+	Container contentPane;
+	FileJPanel fjp;
+	public SettingJFrame(){
+		
+	}
+	
+	public void createInterface(){
+		contentPane = this.getContentPane();
+		fjp = new FileJPanel(list);
+		contentPane
+	}
+
+}

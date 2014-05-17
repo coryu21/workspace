@@ -1,0 +1,8 @@
+
+public class Boyer {
+	int skip[];
+	
+	public void initSkip(String pattern){
+		
+	}
+}

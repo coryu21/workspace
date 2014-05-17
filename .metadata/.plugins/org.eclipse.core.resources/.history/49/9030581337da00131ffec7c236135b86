@@ -1,0 +1,35 @@
+public class KMP {
+
+	int next[];
+	
+	public KMP() {
+	}
+
+	public void initNext(String pattern) {
+		next = new int[pattern.length()];
+		next[0] = -1;
+		for (int i = 1, j = 0; i < pattern.length(); i++, j++) {
+			//next[i] = j;
+			next[i] = (pattern.charAt(i) == pattern.charAt(j)) ? next[j] : j;
+			while (j >= 0 && pattern.charAt(i) != pattern.charAt(j)) {
+				j = next[j];
+			}
+		}
+		System.out.print("패턴 : " +  pattern + "\tnext[] : ");
+		for(int i = 1; i<next.length; i++){
+			System.out.print(next[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	public int search(String text, String pattern){
+		initNext(pattern);
+		for(int i = 0; j = 0; j<pattern.length() && i<text.length(); i++, j++){
+			
+		}
+	}
+
+	public static void main(String args[]){
+		new KMP().initNext("10100111");
+	}
+}

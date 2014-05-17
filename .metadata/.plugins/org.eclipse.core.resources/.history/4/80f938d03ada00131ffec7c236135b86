@@ -1,0 +1,22 @@
+public class Boyer {
+	int skip[];
+
+	public void initSkip(String pattern) {
+		skip = new int[127];
+		for (int i = 0; i < skip.length; i++) {
+			skip[i] = pattern.length();
+		}
+		for (int i = 0; i < pattern.length(); i++) {
+			int j = (int)pattern.charAt(i);
+			skip[j] = pattern.length() - i - 1;
+		}
+
+		for (int i = 0; i < pattern.length(); i++) {
+			System.out.println(pattern.charAt(pattern.length()-(i+1)) + " " + skip[pattern.charAt(i)] + " ");
+		}
+	}
+	
+	public static void main(String args[]){
+		new Boyer().initSkip("reminiscence");
+	}
+}

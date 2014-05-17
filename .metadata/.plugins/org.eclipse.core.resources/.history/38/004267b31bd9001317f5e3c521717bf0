@@ -1,0 +1,42 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
+
+public class FolderJPanel extends JPanel{
+	JTextField folder_tf;
+	JButton search_btn;
+	TitledBorder title;
+	JFileChooser chooser;
+	
+	public FolderJPanel(){
+		
+	}
+	
+	public void createInterface(){
+		
+	}
+	
+	public void event() {
+		search_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openFile();
+			}
+		});
+	}
+	
+	public void openFile(){
+		if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			File file = chooser.getSelectedFile();
+			ta.append(file.getName() + "\n");
+			list.add(file);
+			System.out.println(file);
+		}
+	}
+}

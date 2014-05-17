@@ -1,0 +1,16 @@
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+
+public class Main {
+	public static void main(String args[]){
+		MainJFrame mjf = new MainJFrame();
+		 try {
+			UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
+		} catch (Exeption e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+	}
+}

@@ -1,0 +1,23 @@
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
+
+public class PasswordJPanel extends JPanel{
+	JLabel pw_lb;
+	JTextField pw_tf;
+	TitledBorder title;
+	
+	public PasswordJPanel(){
+		
+	}
+	
+	public void createInterface(){
+		pw_lb = new JLabel("PASSWORD");
+		pw_tf = new JTextField(10);
+		title = new TitledBorder("PASSWORD");
+		
+	}
+
+}

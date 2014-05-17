@@ -1,0 +1,9 @@
+
+public class MouseNoMove extends Thread{
+	Robot robot;
+	
+	public MouseNoMove(){
+		
+	}
+
+}

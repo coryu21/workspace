@@ -1,0 +1,84 @@
+public class JarvisMarch {
+	int N = 16;
+	int x_value[] = { 4, 12, 3, 10, 14, 1, 13, 6, 8, 7, 15, 16, 2, 11, 9, 5 };
+	int y_value[] = { 6, 16, 12, 11, 4, 10, 8, 7, 9, 5, 3, 14, 15, 1, 13, 2 };
+	char c_value[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+			'L', 'M', 'N', 'O', 'P' };
+
+	public JarvisMarch() {
+
+	}
+
+	public void swap(Point1 p[], int i, int j) {
+		Point1 t = p[i];
+		p[i] = p[j];
+		p[j] = t;
+	}
+
+	public float theta(Point1 p1, Point1 p2) {
+		int dx, dy, ax, ay;
+		float t;
+
+		dx = p2.x - p1.x;
+		ax = Math.abs(dx);
+		dy = p2.y - p1.y;
+		ay = Math.abs(dy);
+		t = (ax + ay == 0) ? 0 : (float) dy / (ax + ay);
+
+		if (dx < 0)
+			t = 2 - t;
+		if (dy < 0)
+			t = 4 + t;
+		return (float) (t * 90.0);
+	}
+
+	int PackageWrapping(Point1 p[], int n) {
+		int i, min, M;
+		float th, v;
+		for (min = 0, i = 1; i < n; i++) { // 최소 y 찾는 반복문, min에는 인덱스값이 들어감
+			if (p[i].y < p[min].y)
+				min = i;
+		}
+		p[n] = p[min];
+		th = (float) 0.00;
+		for (M = 0; M < n; M++) {
+			swap(p, M, min);
+			min = n;
+			v = th;
+			th = (float) 360.0;
+
+			for (i = M + 1; i <= n; i++) {
+				if (theta(p[M], p[i]) > v) {
+					if (theta(p[M], p[i]) < th) {
+						min = i;
+						th = theta(p[M], p[min]);
+					}
+				}
+			}
+			if (min == n)
+				return M;
+		}
+		return 0;
+	}
+
+	public static void main(String args[]) {
+		JarvisMarch jm = new JarvisMarch();
+
+		int i, M;
+		Point1 p[] = new Point1[jm.N + 1];
+		for (i = 0; i < jm.N; i++) {
+			p[i] = new Point1();
+			p[i].x = jm.x_value[i];
+			p[i].y = jm.y_value[i];
+			p[i].c = jm.c_value[i];
+			System.out.println((char)0p[i].c + "  " + p[i].x + ", " + p[i].y);
+		}
+
+		M = jm.PackageWrapping(p, jm.N);
+
+		for (i = 0; i <= M; i++) {
+			System.out.printf("%c ", p[i].c);
+		}
+		System.out.println();
+	}
+}

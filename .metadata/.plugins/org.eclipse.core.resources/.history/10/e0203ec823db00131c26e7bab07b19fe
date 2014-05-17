@@ -1,0 +1,58 @@
+public class TwoDTreeSearch {
+	Node head;
+	Node z;
+	Point1 dummy;
+
+	public TwoDTreeSearch() {
+		head = new Node();
+		z = new Node();
+		dummy = new Point1();
+	}
+
+	public boolean insiderect(Point1 p, Rect range) {
+		return (p.x >= range.x1 && p.x <= range.x2)
+				&& (p.y >= range.y1 && p.y <= range.y2);
+	}
+
+	public void inesrt(Point1 p) {
+		Node f = null, t;
+		boolean d, td = false;
+
+		for (d = true, t = head; t != z; d = !d) {
+			td = d ? (p.x < t.p.x) : (p.y < t.p.y);
+			f = t;
+			t = td ? t.l : t.r;
+		}
+
+		t = new Node();
+		t.p = p;
+		t.l = z;
+		t.r = z;
+		if (td) {
+			f.l = t;
+		} else {
+			f.r = t;
+		}
+	}
+
+	public int serach(Rect range) {
+		return searchr(head.r, range, 0);
+	}
+
+	public int searchr(Node t, Rect range, boolean d) {
+		int count = 0;
+		boolean t1, t2, tx1, tx2, ty1, ty2;
+		if (t == z)
+			return 0;
+		tx1 = range.x1 < t.p.x;
+		tx2 = t.p.x <= range.x2;
+		ty1 = range.y1 < t.p.y;
+		ty2 = t.p.y <= range.y2;
+
+		t1 = d ? tx1 : ty1;
+		t2 = d ? tx2 : ty2;
+		
+		if(t1) count += search(t.l, )
+		return 0;
+	}
+}

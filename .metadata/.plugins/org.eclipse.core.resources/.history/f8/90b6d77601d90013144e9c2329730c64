@@ -1,0 +1,46 @@
+import static com.googlecode.javacv.cpp.opencv_core.*;
+import static com.googlecode.javacv.cpp.opencv_imgproc.*;
+import static com.googlecode.javacv.cpp.opencv_highgui.*;
+
+import com.googlecode.javacv.FrameGrabber;
+import com.googlecode.javacv.FrameRecorder;
+import com.googlecode.javacv.OpenCVFrameRecorder;
+import com.googlecode.javacv.VideoInputFrameGrabber;
+import com.googlecode.javacv.FrameGrabber.Exception;
+import com.googlecode.javacv.cpp.opencv_core.IplImage;
+import com.googlecode.javacv.cpp.opencv_highgui.CvCapture;
+
+public class Video{
+	IplImage frame = null;
+	CvCapture capture = null;
+	FrameGrabber grabber;
+	String fileName = "TEST.avi";
+	
+	public Video() {
+		grabber = new VideoInputFrameGrabber(0);
+		capture();
+	}
+
+	public void capture() {
+		try {
+			grabber.start();
+			String FILENAME = "TEST.avi";
+			FrameRecorder recorder = new OpenCVFrameRecorder(FILENAME, 640, 480);
+			recorder.setVideoCodec(CV_FOURCC('M', 'J', 'P', 'G'));
+			recorder.setPixelFormat(1);
+			recorder.setFrameRate(22);
+
+			recorder.start();
+
+			for (int i = 0; i < 1000; i++) {
+				frame = grabber.grab();
+				recorder.record(frame);
+			}
+			recorder.stop();
+			grabber.stop();
+
+		} catch (Exception | com.googlecode.javacv.FrameRecorder.Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

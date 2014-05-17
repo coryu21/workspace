@@ -1,0 +1,38 @@
+import java.awt.AWTException;
+import java.awt.Image;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
+
+public class TrayBlackBox {
+
+	// SystemTray클래스를 얻어옵니다.
+	private SystemTray tray = SystemTray.getSystemTray();
+	private TrayIcon tray_icon;
+	//private JFrame main;
+
+	public TrayBlackBox(){
+		initTray();
+	}
+	
+	private void initTray() {
+		Image image = Toolkit.getDefaultToolkit().getImage("images/Koala.jpg");
+
+		tray_icon = new TrayIcon(image, "BlackBox", null);
+		tray_icon.setImageAutoSize(true);
+
+		try {
+			tray.add(tray_icon);
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public PopupMenu cratePopupMenu(){
+		PopupMenu menu = new PopumpMenu();
+	}
+	public static void main(String args[]) {
+		new TrayBlackBox();
+	}
+}

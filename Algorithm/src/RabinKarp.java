@@ -15,7 +15,7 @@ public class RabinKarp {
 			return (c - 64);
 	}
 
-	public int rabinKarp(String pattern, String text, int index) {
+	public int rabinKarp(String pattern,   String text, int index) {
 		char p[] = pattern.toCharArray();
 		char t[] = text.toCharArray();
 		int i, dm = 1, h1 = 0, h2 = 0;

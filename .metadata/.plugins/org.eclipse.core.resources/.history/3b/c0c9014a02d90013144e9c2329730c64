@@ -1,0 +1,27 @@
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+
+public class MainJFrame extends JFrame{
+	Container contentPane;
+	JButton start_btn, setting_btn, exit_btn;
+			
+	public MainJFrame(){
+		
+	}
+
+	public void createInterface(){
+		contentPane = this.getContentPane();
+		start_btn = new JButton("START");
+		setting_btn = new JButton("SETTING");
+		exit_btn = new JButton("EXIT");
+		
+		this.setLocationRelativeTo(null);
+		this.pack();
+		this.setResizable(false);
+		this.setVisible(true);
+	}
+	
+}

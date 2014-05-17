@@ -1,0 +1,7 @@
+
+public class ThreadTest {
+	Counter c= new Counter();
+	new Consumer(c).start();
+	new Consumer(c).start();
+	
+}

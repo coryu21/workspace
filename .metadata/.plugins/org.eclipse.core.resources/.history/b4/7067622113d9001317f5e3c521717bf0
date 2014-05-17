@@ -1,0 +1,7 @@
+
+public class FileJPanel {
+	JTextArea ta;
+	JButton search_btn;
+	
+
+}

@@ -1,0 +1,24 @@
+import java.io.File;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+
+public class WatchThread extends Thread{
+	LinkedList list;
+	int date[];
+	
+	public WatchThread(LinkedList list){
+		this.list = list;
+	}
+	
+	public void init(){
+		Iterator it = list.iterator();
+		int coutn = 0;
+		File temp;
+		while(it.hasNext()){
+			temp = (File) it.next();
+			date[count++] = temp.
+		}
+	}
+
+}

@@ -1,0 +1,12 @@
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
+
+public class FolderJPanel extends JPanel{
+	JTextField folder_tf;
+	JButton search_btn;
+	TitledBorder title;
+	
+
+}

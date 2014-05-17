@@ -1,0 +1,19 @@
+public class Consumer extends Thread {
+	Counter c;
+
+	public void Consumer(Counter c) {
+		this.c = c;
+	}
+
+	public void run() {
+		for (int i = 0; i < 100; i++) {
+			c.decrement();
+			try {
+				Thread.sleep(99);
+			} catch (InterruptedException e) {
+				System.out.println(c.getCount());
+			}
+		}
+	}
+
+}

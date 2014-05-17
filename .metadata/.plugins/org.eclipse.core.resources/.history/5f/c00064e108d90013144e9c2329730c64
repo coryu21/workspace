@@ -1,0 +1,12 @@
+import java.awt.Robot;
+
+
+public class MouseNoMove extends Thread{
+	Robot robot;
+	
+	public MouseNoMove(){
+		robot = new Robot();
+		
+	}
+
+}

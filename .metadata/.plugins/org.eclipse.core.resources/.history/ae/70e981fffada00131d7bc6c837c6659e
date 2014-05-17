@@ -1,0 +1,11 @@
+import java.awt.event.ActionListener;
+
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+
+
+public class RandomCharacters extends JFrame implements ActionListener{
+	private final static int SIZE = 3;
+	private JCheckBox checkboxes[];
+	private Lock lockObject = new ReentrantLock(true);
+}

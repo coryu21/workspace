@@ -1,0 +1,19 @@
+public class Producer extends Thread {
+	Counter c;
+
+	public Producer(Counter c) {
+		this.c = c;
+	}
+
+	public void run() {
+		for (int i = 0; i < 100; i++) {
+			c.increment();
+			System.out.println(getName() + " increase " + c.getCount());
+			try {
+				Thread.sleep(99);
+			} catch (InterruptedException e) {
+				System.out.println(c.getCount());
+			}
+		}
+	}
+}

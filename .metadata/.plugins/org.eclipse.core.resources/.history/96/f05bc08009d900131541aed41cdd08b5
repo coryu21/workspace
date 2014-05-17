@@ -1,0 +1,21 @@
+import java.awt.AWTException;
+import java.awt.Robot;
+
+public class MouseNoMove extends Thread {
+	Robot robot;
+	Boolean on_off = true;
+	public MouseNoMove() {
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void run(){
+		while(true){
+			robot.mouseMove(0, 0);
+		}
+	}
+
+}

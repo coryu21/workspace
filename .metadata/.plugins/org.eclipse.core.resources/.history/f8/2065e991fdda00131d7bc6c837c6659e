@@ -1,0 +1,18 @@
+public class User implements Runnable {
+	Counter c;
+
+	public User(Counter c) {
+		this.c = c;
+	}
+
+	public void run(){
+		for(int i = 0; i<100; i++){
+			c.increment();
+			try{
+				Thread.sleep(99);
+			}catch(InterruptedException e){
+				System.out.println(c.getCount());
+			}
+		}
+	}
+}

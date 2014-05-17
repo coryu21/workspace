@@ -1,0 +1,50 @@
+import java.io.File;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+
+public class WatchThread extends Thread{
+	LinkedList list;
+	long date[];
+	
+	public WatchThread(LinkedList list){
+		this.list = list;
+		date = new long[256];
+	}
+	
+	public void run(){
+		init();
+	}
+	
+	public void init(){
+		Iterator it = list.iterator();
+		int count = 0;
+		String fileName;
+		File temp;	
+		while(it.hasNext()){	
+			fileName = ((File)it.next()).getPath();
+			temp = new File(fileName);
+			date[count] = temp.lastModified();
+			System.out.println(date[count]);
+			count++;
+		}
+	}
+	
+	public void watch(){
+		Iterator it = list.iterator();
+		long last;
+		String fileName;
+		File temp;
+		Boolean check = true;
+		
+		for(int i = 0; it.hasNext() && check; i++){
+			fileName = ((File)it.next()).getPath();
+			temp = new File(fileName);
+			last = temp.lastModified();
+			if(date[i] != last){
+				
+			}
+		}
+	}
+
+}

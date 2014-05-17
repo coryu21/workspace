@@ -1,0 +1,35 @@
+import java.awt.Container;
+import java.util.LinkedList;
+
+import javax.swing.JFrame;
+
+
+public class SettingJFrame extends JFrame{
+	LinkedList list;
+	Container contentPane;
+	FileJPanel fjp;
+	PasswordJPanel pjp;
+	public SettingJFrame(){
+		list = new LinkedList();
+		createInterface();
+	}
+	
+	public void createInterface(){
+		contentPane = this.getContentPane();
+		fjp = new FileJPanel(list);
+		pjp = new PasswordJPanel();
+		contentPane.add(fjp);
+		
+		this.setTitle("SETTING");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		this.pack();
+		this.setResizable(false);
+		this.setVisible(true);
+	}
+	
+	public static void main(String args[]){
+		new SettingJFrame();
+	}
+
+}

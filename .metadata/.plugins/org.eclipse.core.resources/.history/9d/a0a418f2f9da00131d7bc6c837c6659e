@@ -1,0 +1,8 @@
+
+public class RunnableObject implements Runnable{
+	private static Random generator = new Random();
+	private Lock lockObject;
+	private Condition suspend = false;
+	
+
+}
